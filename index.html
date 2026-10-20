@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プレミアム英単語タイピング</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <header class="game-header">
+        <h1>PREMIUM TYPING</h1>
+        <div id="combo-badge" class="combo-hidden">0 COMBO 🔥</div>
+    </header>
+    <div class="card">
+        <div id="scr-start" class="screen active">
+            <p class="subtitle">1000のコア英単語をマスターしよう</p>
+            <div class="settings-group">
+                <label>⏱️ 制限時間: 
+                    <select id="set-time">
+                        <option value="30">30秒（サクッと）</option>
+                        <option value="60" selected>60秒（標準）</option>
+                        <option value="90">90秒（じっくり）</option>
+                    </select>
+                </label>
+                <label>🎵 効果音: 
+                    <select id="set-sound">
+                        <option value="on">ON（電子合成音）</option>
+                        <option value="off">OFF</option>
+                    </select>
+                </label>
+            </div>
+            <button class="btn btn-primary btn-start">ゲームスタート <span class="kbd">Space</span></button>
+        </div>
+        <div id="scr-play" class="screen">
+            <div class="dashboard">
+                <div class="dash-item"><span class="label">TIME</span><span id="t-time" class="val">60</span></div>
+                <div class="dash-item"><span class="label">SCORE</span><span id="t-score" class="val">0</span></div>
+                <div class="dash-item"><span class="label">ACCURACY</span><span id="t-acc" class="val">100%</span></div>
+                <div class="dash-item"><span class="label">WPM</span><span id="t-wpm" class="val">0</span></div>
+            </div>
+            <div class="progress-bar-container">
+                <div id="game-progress" class="progress-bar"></div>
+            </div>
+            <div class="word-container">
+                <div id="w-box" class="word-display"></div>
+            </div>
+            <p class="hint-text">キーボードでそのままタイプしてください</p>
+        </div>
+        <div id="scr-res" class="screen">
+            <h2>パフォーマンス評価</h2>
+            <div class="rank-display">RANK <span id="r-rank">-</span></div>
+            <div class="dashboard">
+                <div class="dash-item"><span class="label">クリア単語数</span><span id="r-score" class="val">0</span></div>
+                <div class="dash-item"><span class="label">最高コンボ</span><span id="r-maxcombo" class="val">0</span></div>
+                <div class="dash-item"><span class="label">正確率</span><span id="r-acc" class="val">0%</span></div>
+                <div class="dash-item"><span class="label">タイピング速度</span><span id="r-wpm" class="val">0 WPM</span></div>
+            </div>
+            <div id="weakness-box" class="weakness-container">
+                <h4>⚠️ 今回ミスした苦手単語（復習用）</h4>
+                <div id="wrong-list" class="wrong-tags"></div>
+            </div>
+            <button class="btn btn-secondary btn-start">もう一度挑戦 <span class="kbd">Space</span></button>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/umbrellajs@3.3/umbrella.min.js" integrity="sha256-/pA3jbkuCqC1xWAoYYBr1fLJ+IPktlLjO/MYceh0jic=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="words.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
